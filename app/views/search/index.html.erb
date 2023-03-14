@@ -1,0 +1,25 @@
+<div>
+  <div class="search-header">
+    <%= render partial: "components/search_form" %>
+  </div>
+  <div class="repositories-container">
+    <%
+      repository = Repository.new(
+        name: "test", description: "description",
+        owner: "ruby", url: "http://www.google.com",
+        stars: 10
+      )
+    %>
+    <div class="repository">
+      <div class="repository-name">
+        <%= link_to repository.name, repository.url %>
+      </div>
+      <div class="repository-description">
+        <%= repository.description %>
+      </div>
+      <div class="repository-language">
+        <%= repository.owner %>
+      </div>
+    </div>
+  </div>
+</div>

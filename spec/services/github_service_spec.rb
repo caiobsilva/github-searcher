@@ -29,7 +29,8 @@ RSpec.describe GithubService, type: :service do
 
       it "returns a cached array of repositories" do
         expect(::Rails.cache).to receive(:fetch)
-          .with(["repositories", "query"], expires_in: 1.hour).and_call_original
+          .with(["repositories", "query"], expires_in: 1.hour)
+          .and_call_original
 
         expect(subject).to all(be_a(Repository))
       end
