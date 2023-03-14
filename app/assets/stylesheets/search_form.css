@@ -1,0 +1,23 @@
+.search-form form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form form input[type="text"] {
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.search-form form input[type="submit"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}

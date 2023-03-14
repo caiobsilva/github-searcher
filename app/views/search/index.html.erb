@@ -1,4 +1,4 @@
-<div>
+<div class="search-container">
   <div class="search-header">
     <%= render partial: "components/search_form" %>
   </div>
@@ -11,14 +11,16 @@
       )
     %>
     <div class="repository">
-      <div class="repository-name">
-        <%= link_to repository.name, repository.url %>
+      <div class="repository-info">
+        <div class="repository-name">
+          <%= link_to "#{repository.owner}/#{repository.name}", repository.url %>
+        </div>
+        <div class="repository-description">
+          <%= repository.description %>
+        </div>
       </div>
-      <div class="repository-description">
-        <%= repository.description %>
-      </div>
-      <div class="repository-language">
-        <%= repository.owner %>
+      <div class="repository-stars">
+        <%= repository.stars %>☆
       </div>
     </div>
   </div>
