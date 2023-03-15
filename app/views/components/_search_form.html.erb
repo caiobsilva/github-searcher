@@ -1,6 +1,11 @@
 <div class="search-form">
   <%= form_tag search_index_path, method: :get do %>
-    <%= text_field_tag :query, nil, placeholder: "search for a repo!", class: "form-control" %>
+    <%=
+      text_field_tag :query, nil,
+      placeholder: "search for a repo!",
+      class: "form-control",
+      required: "required"
+    %>
     <%= submit_tag "search", class: "btn btn-primary" %>
   <% end %>
 </div>

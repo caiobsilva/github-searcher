@@ -14,6 +14,8 @@ class GithubService
     Rails.cache.fetch(["repositories", query], expires_in: 1.hour) do
       response = get("search/repositories", q: query)
 
+      return [] unless response[:items]
+
       response[:items].map do |item|
         Repository.new(
           name: item[:name],

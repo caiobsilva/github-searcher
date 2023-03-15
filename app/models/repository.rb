@@ -5,7 +5,7 @@ class Repository
     @name = attrs[:name]
     @owner = attrs[:owner]
 
-    @description = attrs[:description]
+    @description = attrs[:description] || "No description."
     @stars = attrs[:stars]
     @url = attrs[:url]
 

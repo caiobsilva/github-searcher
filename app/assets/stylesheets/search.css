@@ -7,6 +7,14 @@
   margin-bottom: 20px;
 }
 
+.no-repositories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
 .repositories-container {
   display: flex;
   flex-direction: column;
@@ -33,6 +41,7 @@
   justify-content: left;
   align-items: flex-start;
   margin-left: 10px;
+  max-width: 80%;
 }
 
 .repository-name {

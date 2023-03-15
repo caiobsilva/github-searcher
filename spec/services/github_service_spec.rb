@@ -11,28 +11,42 @@ RSpec.describe GithubService, type: :service do
     end
 
     context "when the request is successful" do
-      let(:body) do
-        {
-          items: [{
-            name: "name",
-            owner: { login: "owner" },
-            description: "description",
-            stargazers_count: 1,
-            html_url: "url"
-          }]
-        }
-      end
-
       before do
         stub_request(:get, url).to_return(body: body.to_json)
       end
 
-      it "returns a cached array of repositories" do
-        expect(::Rails.cache).to receive(:fetch)
-          .with(["repositories", "query"], expires_in: 1.hour)
-          .and_call_original
+      context "and the response has items" do
+        let(:body) do
+          {
+            items: [{
+              name: "name",
+              owner: { login: "owner" },
+              description: "description",
+              stargazers_count: 1,
+              html_url: "url"
+            }]
+          }
+        end
 
-        expect(subject).to all(be_a(Repository))
+        it "returns a cached array of repositories" do
+          expect(::Rails.cache).to receive(:fetch)
+            .with(["repositories", "query"], expires_in: 1.hour)
+            .and_call_original
+
+          expect(subject).to all(be_a(Repository))
+        end
+      end
+
+      context "and the response does not have items" do
+        let(:body) { {} }
+
+        it "returns an empty array" do
+          expect(::Rails.cache).to receive(:fetch)
+            .with(["repositories", "query"], expires_in: 1.hour)
+            .and_call_original
+
+          expect(subject).to eq([])
+        end
       end
     end
 
