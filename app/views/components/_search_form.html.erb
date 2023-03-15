@@ -2,7 +2,7 @@
   <%= form_tag search_index_path, method: :get do %>
     <%=
       text_field_tag :query, nil,
-      placeholder: "search for a repo!",
+      placeholder: t("search_form.placeholder"),
       class: "form-control",
       required: "required"
     %>

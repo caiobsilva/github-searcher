@@ -1,0 +1,17 @@
+.pagination {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 1em;
+}
+
+.pagination a {
+  color: rgb(228, 228, 228);
+  text-decoration: none;
+}
+
+.pagination .current {
+  color: white;
+  font-style: normal;
+  font-weight: bold;
+}

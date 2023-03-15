@@ -21,9 +21,12 @@
         </div>
       <% end %>
     </div>
+    <div class="pagination">
+      <%= will_paginate @repositories %>
+    </div>
   <% else %>
     <div class="no-repositories">
-      <h2>oops! no repositories for the given query were found.</h2>
+      <h2><%= t("search.no_content") %></h2>
     </div>
   <% end %>
 </div>

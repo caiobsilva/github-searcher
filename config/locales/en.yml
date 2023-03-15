@@ -30,4 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  head:
+    title: "github searcher"
+  home:
+    title: "github searcher"
+  search:
+    no_content: "oops! no repositories for the given query were found."
+  search_form:
+    placeholder: "search for a repo!"
